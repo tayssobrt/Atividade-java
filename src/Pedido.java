@@ -8,7 +8,7 @@ public class Pedido {
     private StatusDePedido status;
 
     //Composição de muitos representada por *
-    private List<OrdemDePedido> ordemDePedidos = new ArrayList<>();
+    private List<OrdemDePedido> pedidos = new ArrayList<>();
 
     //Composição unica representada por 1
     private Cliente cliente;
@@ -32,11 +32,11 @@ public class Pedido {
     }
 
     public List<OrdemDePedido> getOrdemDePedido() {
-        return ordemDePedidos;
+        return pedidos;
     }
 
     public void setOrdemDePedido(List<OrdemDePedido> OrdemDePedido) {
-        this.ordemDePedidos = OrdemDePedido;
+        this.pedidos = OrdemDePedido;
     }
 
     public StatusDePedido getStatus() {
@@ -54,4 +54,21 @@ public class Pedido {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    public void addItem(OrdemDePedido ordemDePedido) {
+        this.pedidos.add(ordemDePedido);
+    }
+
+    public void removevItem(OrdemDePedido ordemDePedido) {
+        this.pedidos.remove(ordemDePedido);
+    }
+
+    public double total() {
+        double soma = 0;
+        for (OrdemDePedido item : pedidos) {
+        soma += item.subTotal();
+        }
+        return soma;
+    }
+
 }

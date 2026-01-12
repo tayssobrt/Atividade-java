@@ -39,5 +39,9 @@ public class OrdemDePedido {
     public void setValor(Double valor) {
         this.valor = valor;
     }
+
+    public double subTotal() {
+    return  valor * quantidade;
+    }
 }
 
