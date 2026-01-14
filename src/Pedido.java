@@ -1,10 +1,11 @@
 import enums.StatusDePedido;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
-    private LocalDate hora;
+    private LocalDateTime hora;
     private StatusDePedido status;
 
     //Composição de muitos representada por *
@@ -17,17 +18,17 @@ public class Pedido {
 
     }
 
-    public Pedido(LocalDate hora, StatusDePedido status, Cliente cliente) {
+    public Pedido(LocalDateTime hora, StatusDePedido status, Cliente cliente) {
         this.hora = hora;
         this.status = status;
         this.cliente = cliente;
     }
 
-    public LocalDate getHora() {
+    public LocalDateTime getHora() {
         return hora;
     }
 
-    public void setHora(LocalDate hora) {
+    public void setHora(LocalDateTime hora) {
         this.hora = hora;
     }
 
@@ -59,7 +60,7 @@ public class Pedido {
         this.pedidos.add(ordemDePedido);
     }
 
-    public void removevItem(OrdemDePedido ordemDePedido) {
+    public void removeItem(OrdemDePedido ordemDePedido) {
         this.pedidos.remove(ordemDePedido);
     }
 
@@ -71,4 +72,10 @@ public class Pedido {
         return soma;
     }
 
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "status=" + status +
+                '}';
+    }
 }
